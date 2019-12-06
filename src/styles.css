@@ -1,4 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
-.active {
-    color: dodgerblue;
+.btn {
+    height: 48px;
+    border: none;
+    outline: none;
+    border-radius: 44px;
+    background-color: #13C98A;
+    font-family: LetoSans-Bold, serif;
+    font-size: 16px;
+    text-align: center;
+
+    color: #FFFFFF;
+    padding: 0 40px;
+
+    margin: 8px auto;
+}
+
+.btn:hover {
+    background-color: #2e09b6;
+    color: white;
+}
+
+.reset {
+    background-color: #BDBDBD;
+    color: white;
+    padding: 0 20px;
+}
+
+.reset:hover {
+    background-color: dimgrey;
 }

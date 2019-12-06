@@ -1,0 +1,38 @@
+.form-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: dimgrey;
+}
+
+form {
+    padding: 24px;
+    margin: auto;
+    width: 384px;
+    background-color: #FFFFFF;
+}
+
+.input {
+    height: 56px;
+    margin: 16px 0;
+    border: 2px solid #EDE8F7;
+    border-radius: 6px;
+}
+
+.input:hover {
+    border-color: #C0BAD5;
+}
+
+.input:focus {
+    box-shadow: 0 0 5px rgba(46, 9, 182, 0.6);
+}
+
+.big {
+    height: 100px;
+}
+
+input[type='submit'] {
+    width: 192px;
+}

@@ -1,0 +1,57 @@
+<div class="form-container">
+  <form [formGroup]="angForm">
+    <h3>Форма для тебя</h3>
+    <div class="form-group">
+      <input class="form-control input"
+             autocomplete="off"
+             type="text"
+             name="name"
+             placeholder="Представьтесь пожалуйста"
+             formControlName="name"
+             #name>
+    </div>
+    <div class="form-group">
+      <input class="form-control input"
+             autocomplete="off"
+             type="email"
+             name="email"
+             placeholder="Введите ваш email"
+             formControlName="email"
+             #email>
+    </div>
+    <div class="form-group">
+      <select class="form-control input"
+              formControlName="theme"
+              name="theme"
+              #theme>
+        <option value="" disabled>Тема сообщения</option>
+        <option *ngFor="let theme of themes" [value]="theme">{{theme}}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <textarea class="form-control input big"
+                placeholder="Ваше сообщение"
+                type="text"
+                name="message"
+                formControlName="message"
+                #message>
+      </textarea>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn reset"
+                (click)="onClickReset()">
+          Сбросить
+        </button>
+      </div>
+      
+      <div class="col">
+        <input class="btn"
+               type="submit"
+               value="Отправить"
+               (click)="onClickSubmit(email.value, name.value, theme.value, message.value)">
+      </div>
+    </div>
+  </form>
+</div>
