@@ -1,5 +1,5 @@
 export interface FormsDataModel {
-  name: string,
-  email: string,
+  name: string;
+  email: string;
   theme: string
 }

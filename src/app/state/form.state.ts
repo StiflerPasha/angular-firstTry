@@ -1,15 +1,17 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { FormsDataModel } from '../models/formsDataModel';
+import { FormsDataModel } from '../models/formsData.model';
 import { AddData } from '../actions/form.actions';
 
 export class FormStateModel {
-  formsData: FormsDataModel;
+  formsData: FormsDataModel[];
+  hasData: boolean;
 }
 
 @State<FormStateModel>({
-  name: 'FormState',
+  name: 'formsData',
   defaults: {
-    formsData: {name: '', theme: '', email: ''}
+    formsData: [],
+    hasData: false
   }
 })
 
@@ -20,11 +22,16 @@ export class FormState {
     return state.formsData;
   }
   
+  @Selector()
+  static hasData(state: FormStateModel) {
+    return state.hasData;
+  }
+  
   @Action(AddData)
-  add({getState, patchState}: StateContext<FormStateModel>, {payload}: AddData) {
-    const state = getState();
+  add({patchState}: StateContext<FormStateModel>, {payload}: AddData) {
     patchState({
-      formsData: {...state.formsData, ...payload}
+      formsData: [payload],
+      hasData: true
     });
   }
 }

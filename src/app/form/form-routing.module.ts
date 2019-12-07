@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormComponent } from './form.component';
 
 const routes: Routes = [
-  {path: '', component: FormComponent}
+  {path: '', component: FormComponent},
+  {path: 'edit', component: FormComponent}
 ];
 
 @NgModule({

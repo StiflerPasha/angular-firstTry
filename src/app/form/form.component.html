@@ -1,28 +1,43 @@
 <div class="form-container">
   <form [formGroup]="angForm">
     <h3>Форма для тебя</h3>
+    
     <div class="form-group">
       <input class="form-control input"
+             [ngClass]="{'is-invalid': submitted && f.name.errors}"
+             ngbTooltip="Введите имя"
+             placement="top-left"
+             [disableTooltip]="!submitted"
+             tooltipClass="form-tooltip"
              autocomplete="off"
              type="text"
-             name="name"
              placeholder="Представьтесь пожалуйста"
              formControlName="name"
              #name>
     </div>
+    
     <div class="form-group">
       <input class="form-control input"
+             [ngClass]="{'is-invalid': submitted && f.email.errors}"
+             ngbTooltip="Введите email"
+             placement="top-left"
+             [disableTooltip]="!submitted"
+             tooltipClass="form-tooltip"
              autocomplete="off"
              type="email"
-             name="email"
              placeholder="Введите ваш email"
              formControlName="email"
              #email>
     </div>
+    
     <div class="form-group">
       <select class="form-control input"
+              [ngClass]="{'is-invalid': submitted && f.theme.errors}"
+              ngbTooltip="Выберите тему"
+              placement="top-left"
+              [disableTooltip]="!submitted"
+              tooltipClass="form-tooltip"
               formControlName="theme"
-              name="theme"
               #theme>
         <option value="" disabled>Тема сообщения</option>
         <option *ngFor="let theme of themes" [value]="theme">{{theme}}</option>
@@ -33,11 +48,10 @@
       <textarea class="form-control input big"
                 placeholder="Ваше сообщение"
                 type="text"
-                name="message"
-                formControlName="message"
-                #message>
+                formControlName="message">
       </textarea>
     </div>
+    
     <div class="row">
       <div class="col">
         <button class="btn reset"
@@ -50,7 +64,7 @@
         <input class="btn"
                type="submit"
                value="Отправить"
-               (click)="onClickSubmit(email.value, name.value, theme.value, message.value)">
+               (click)="onClickSubmit(email.value, name.value, theme.value)">
       </div>
     </div>
   </form>
