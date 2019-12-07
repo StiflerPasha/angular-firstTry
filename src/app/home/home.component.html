@@ -1,13 +1,13 @@
-<div style="margin: 20px">
+<div class="container ">
   <p>Form data:</p>
-  
+
   <div *ngIf="!(hasData$ | async); else form">
     <p>Форма пока не заполнена</p>
     <button class="btn" routerLink="/form">
       Заполнить форму
     </button>
   </div>
-  
+
   <ng-template #form>
     <ul *ngFor="let data of formData$ | async">
       <li><strong>Фио: </strong>{{data.name}}</li>
